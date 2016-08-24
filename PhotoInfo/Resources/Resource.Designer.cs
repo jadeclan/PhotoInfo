@@ -63,14 +63,11 @@ namespace PhotoInfo
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f050003
-			public const int dataTextView = 2131034115;
+			// aapt resource value: 0x7f050002
+			public const int dataTextView = 2131034114;
 			
 			// aapt resource value: 0x7f050000
 			public const int getImageBtn = 2131034112;
-			
-			// aapt resource value: 0x7f050002
-			public const int scrollView1 = 2131034114;
 			
 			// aapt resource value: 0x7f050001
 			public const int selectedImageView = 2131034113;
