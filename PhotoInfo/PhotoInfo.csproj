@@ -71,7 +71,9 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\photoInfoIcon.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <AndroidResource Include="Resources\values\colors.xml" />
+  </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\IMG_20160824_002116.jpg" />
   </ItemGroup>
