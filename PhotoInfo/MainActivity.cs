@@ -1,14 +1,11 @@
 ﻿using System;
 using Android.App;
 using Android.Content;
-using Android.Runtime;
-using Android.Views;
 using Android.Widget;
 using Android.OS;
 using Android.Provider;
 using Android.Database;
 using Android.Media;
-using Android.Content.Res;
 
 namespace PhotoInfo
 {

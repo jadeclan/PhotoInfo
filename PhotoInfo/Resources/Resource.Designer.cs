@@ -72,6 +72,12 @@ namespace PhotoInfo
 			// aapt resource value: 0x7f020001
 			public const int photoInfoIcon = 2130837505;
 			
+			// aapt resource value: 0x7f020002
+			public const int scrollbar_vertical_thumb = 2130837506;
+			
+			// aapt resource value: 0x7f020003
+			public const int scrollbar_vertical_track = 2130837507;
+			
 			static Drawable()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
@@ -150,6 +156,9 @@ namespace PhotoInfo
 			
 			// aapt resource value: 0x7f060000
 			public const int Theme_Custom = 2131099648;
+			
+			// aapt resource value: 0x7f060001
+			public const int scrollbar_shape_style = 2131099649;
 			
 			static Style()
 			{
