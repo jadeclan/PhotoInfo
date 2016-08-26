@@ -8,6 +8,7 @@ using Android.OS;
 using Android.Provider;
 using Android.Database;
 using Android.Media;
+using Android.Content.Res;
 
 namespace PhotoInfo
 {
@@ -15,10 +16,10 @@ namespace PhotoInfo
     public class MainActivity : Activity
     {
         public static readonly int PickImageId = 1000;
-        private ImageView _imageView;
-        private TextView _dataTextView;
+
         private Button getImageBtn;
         private string _imagePath = null;
+        private string photoInfo = null;
 
         protected override void OnCreate(Bundle bundle)
         {
@@ -28,9 +29,7 @@ namespace PhotoInfo
             SetContentView(Resource.Layout.Main);
 
             // Set up selecting an image and adding it
-            _imageView = FindViewById<ImageView>(Resource.Id.selectedImageView);
             getImageBtn = FindViewById<Button>(Resource.Id.getImageBtn);
-            _dataTextView = FindViewById<TextView>(Resource.Id.dataTextView);
             getImageBtn.Click +=getImageBtn_Click;
         }
         private void getImageBtn_Click(object sender, EventArgs e)
@@ -43,19 +42,14 @@ namespace PhotoInfo
 
         protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
         {
-            string photoInfo = null;
+            photoInfo = null;
             if ((requestCode == PickImageId) && (resultCode == Result.Ok) && (data != null))
             {
-                _imageView.SetImageURI(data.Data);
-
                 // Get the picture path
                 _imagePath = getPicturePath(data.Data);
 
-                // Since we have a picture, show it, hide the add button
-                // and show the input titles and fields.
-                _imageView.Visibility = ViewStates.Visible;
-                getImageBtn.Visibility = ViewStates.Gone;
-                _dataTextView.Visibility = ViewStates.Visible;
+                // Since we have a picture, get the info we need.
+
                 string picturePath = getPicturePath(data.Data);
                 photoInfo += "Path: " + picturePath + "\n";
 
@@ -178,10 +172,15 @@ namespace PhotoInfo
                     photoInfo += "Latitude2: N/A "+ "\n";
                     photoInfo += "Longitude2: N/A " + "\n";
                 }
-                _dataTextView.Text = photoInfo;
+                // Now that we have the image path and details,put this info
+                // into an intent, then start the activity.
+                // The activity started will then use this info. 
+                Intent returnResults = new Intent(this, typeof(ResultsActivity));
+                returnResults.PutExtra("photoInfo", (string)photoInfo);
+                returnResults.PutExtra("pictureURI", data.Data);
+                StartActivity(returnResults);
             }
         }
-
         public string getPicturePath(Android.Net.Uri uri)
         {
             // Thanks to Benoit Jadinon via StackOverFlow
