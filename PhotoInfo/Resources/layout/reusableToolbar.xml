@@ -1,6 +1,6 @@
 ﻿<merge xmlns:android="http://schemas.android.com/apk/res/android">
 
-  <Toolbar
+  <android.support.v7.widget.Toolbar
       android:minHeight="?android:attr/actionBarSize"
       android:background="?android:attr/colorPrimary"
       android:layout_width="match_parent"
@@ -8,16 +8,16 @@
       android:id="@+id/toolbar">
     <ImageView
         android:src="@drawable/Flag_of_Canada"
-        android:layout_width="50dp"
+        android:layout_width="40dp"
         android:layout_height="wrap_content"
         android:id="@drawable/Flag_of_Canada"
-        android:layout_marginRight="20dp" />
+        android:layout_marginRight="5dp" />
     <TextView
         android:text="@string/toolBarName"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textView1" />
-  </Toolbar>
+  </android.support.v7.widget.Toolbar>
 
 </merge>

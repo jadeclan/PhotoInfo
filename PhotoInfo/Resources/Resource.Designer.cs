@@ -2011,6 +2011,9 @@ namespace PhotoInfo
 			// aapt resource value: 0x7f050014
 			public const int getImage = 2131034132;
 			
+			// aapt resource value: 0x7f050017
+			public const int navigation_icon_description = 2131034135;
+			
 			// aapt resource value: 0x7f050013
 			public const int status_bar_notification_info_overflow = 2131034131;
 			

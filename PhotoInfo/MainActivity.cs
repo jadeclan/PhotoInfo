@@ -1,12 +1,13 @@
 ﻿using System;
 using Android.App;
 using Android.Content;
-using Android.Widget;
 using Android.OS;
 using Android.Provider;
 using Android.Database;
 using Android.Media;
 using Android.Support.V7.App;
+using Android.Widget;
+using Android.Support.V7.Widget;
 
 namespace PhotoInfo
 {
@@ -26,6 +27,14 @@ namespace PhotoInfo
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Main);
 
+            // Set up the tool bar
+            var toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
+            SetSupportActionBar(toolbar);
+            SupportActionBar.SetDisplayHomeAsUpEnabled(true);
+            SupportActionBar.SetHomeButtonEnabled(true);
+
+            SupportActionBar.Title = "";
+            
             // Set up selecting an image and adding it
             getImageBtn = FindViewById<Button>(Resource.Id.getImageBtn);
             getImageBtn.Click +=getImageBtn_Click;
