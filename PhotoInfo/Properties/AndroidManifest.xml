@@ -6,5 +6,6 @@
   <uses-sdk android:minSdkVersion="16" />
   <application android:label="PhotoInfo"
                android:icon="@drawable/photoInfoIcon"
-		android:theme="@style/Theme.Custom"></application>
+		           android:theme="@style/OurTheme">
+  </application>
 </manifest>

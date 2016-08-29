@@ -2,4 +2,5 @@
 <resources>
     <string name="getImage">Go get a photo</string>
     <string name="ApplicationName">PhotoInfo</string>
+    <string name="toolBarName">Sonia\'s Workout App</string>
 </resources>

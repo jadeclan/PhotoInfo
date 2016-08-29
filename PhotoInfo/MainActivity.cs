@@ -6,11 +6,12 @@ using Android.OS;
 using Android.Provider;
 using Android.Database;
 using Android.Media;
+using Android.Support.V7.App;
 
 namespace PhotoInfo
 {
     [Activity(Label = "PhotoInfo", MainLauncher = true, Icon = "@drawable/photoInfoIcon")]
-    public class MainActivity : Activity
+    public class MainActivity : AppCompatActivity
     {
         public static readonly int PickImageId = 1000;
 
