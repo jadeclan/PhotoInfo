@@ -12,39 +12,28 @@ namespace PhotoInfo
     {
         private Drawable mBackground;
         private int mScrollPos;
-        public ScrollingView(Context context) : base(context)
-        {
-            init(null, 0);
-        }
-
-        public ScrollingView(Context context, IAttributeSet attrs): base(context, attrs)
+        public ScrollingView(Context context, IAttributeSet attrs) : base(context, attrs)
         {
             init(attrs, 0);
         }
-
-        public ScrollingView(Context context, IAttributeSet attrs, int defStyle) : base(context,attrs,defStyle)
-        {
-            init(attrs, defStyle);
-        }
-
         private void init(IAttributeSet attrs, int defStyle)
         {
             // Load custom view attributes
             TypedArray a = Context.ObtainStyledAttributes(
-                  attrs, Resource.Styleable.ScrollingView, defStyle, 0);
+                    attrs, Resource.Styleable.ScrollingView, defStyle, 0);
 
             // Get background
             if (a.HasValue(Resource.Styleable.ScrollingView_scrollingDrawable))
             {
                 mBackground = a.GetDrawable(
-                      Resource.Styleable.ScrollingView_scrollingDrawable);
+                        Resource.Styleable.ScrollingView_scrollingDrawable);
                 mBackground.SetCallback(this);
             }
 
             // Done with attributes
             a.Recycle();
         }
-
+        
         protected override void OnDraw(Canvas canvas)
         {
             base.OnDraw(canvas);

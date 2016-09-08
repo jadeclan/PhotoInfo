@@ -4,4 +4,5 @@
     <string name="ApplicationName">PhotoInfo</string>
     <string name="toolBarName">Sonia\'s Workout App</string>
     <string name="navigation_icon_description">Back</string>
+    <string name="secretMessage">My super secret Message</string>
 </resources>

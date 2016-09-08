@@ -8,18 +8,32 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:scrollingDrawable="@drawable/main_background" />
-  <LinearLayout android:id="@+id/main_content"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-    <include
-        layout="@layout/reusableToolBar" />
-    <Button
-        android:id="@+id/getImageBtn"
+    <LinearLayout
+        android:id="@+id/main_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <include
+            layout="@layout/reusableToolBar" />
+        <Button
+            android:id="@+id/getImageBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/getImage"
+            android:textAppearance="@android:style/TextAppearance.Material.Headline" />
+        <Button
+        android:id="@+id/fadeInBtn"
+        android:text="Click to see/hide secret message?"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:text="@string/getImage"
-        android:textAppearance="@android:style/TextAppearance.Material.Headline" />
-  </LinearLayout>
+        android:layout_height="200dp" />
+        <TextView
+            android:id="@+id/secretText"
+            android:text="@string/secretMessage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:gravity="center_horizontal"
+            android:visibility="invisible"/>
+    </LinearLayout>
 </FrameLayout>

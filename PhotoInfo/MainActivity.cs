@@ -8,6 +8,8 @@ using Android.Media;
 using Android.Support.V7.App;
 using Android.Widget;
 using Android.Support.V7.Widget;
+using Android.Views.Animations;
+using Android.Views;
 
 namespace PhotoInfo
 {
@@ -27,18 +29,42 @@ namespace PhotoInfo
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Main);
 
-            // Set up the tool bar
-            var toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
-            SetSupportActionBar(toolbar);
-            SupportActionBar.SetDisplayHomeAsUpEnabled(true);
-            SupportActionBar.SetHomeButtonEnabled(true);
+                // Set up the tool bar
+                var toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
+                SetSupportActionBar(toolbar);
+                SupportActionBar.SetDisplayHomeAsUpEnabled(true);
+                SupportActionBar.SetHomeButtonEnabled(true);
 
-            SupportActionBar.Title = "";
-            
-            // Set up selecting an image and adding it
-            getImageBtn = FindViewById<Button>(Resource.Id.getImageBtn);
-            getImageBtn.Click +=getImageBtn_Click;
+                SupportActionBar.Title = "";
+
+                // Set up selecting an image and adding it
+                getImageBtn = FindViewById<Button>(Resource.Id.getImageBtn);
+                getImageBtn.Click += getImageBtn_Click;
+
+            // Now to test fading in text
+            Button fadeIn = FindViewById<Button>(Resource.Id.fadeInBtn);
+            fadeIn.Click += fadeIn_Click;
         }
+        private void fadeIn_Click(object sender, EventArgs e)
+        {
+            TextView secretMessage = FindViewById<TextView>(Resource.Id.secretText);
+            if (secretMessage.Visibility == ViewStates.Visible)
+            {
+                // TODO Find a way to hide the message without having to make it null
+                secretMessage.Visibility = ViewStates.Invisible;
+                secretMessage.Text = "";
+                Console.WriteLine($"Visibility(top) is {secretMessage.Visibility}");
+            }
+            else
+            {
+                secretMessage.SetText(Resource.String.secretMessage);
+                secretMessage.Visibility = Android.Views.ViewStates.Visible;
+                Animation anim = AnimationUtils.LoadAnimation(ApplicationContext, Resource.Animation.fade_in);
+                secretMessage.StartAnimation(anim);
+                Console.WriteLine($"Visibility(bottom) is {secretMessage.Visibility}");
+            }
+        }
+
         private void getImageBtn_Click(object sender, EventArgs e)
         {
             Intent = new Intent();
